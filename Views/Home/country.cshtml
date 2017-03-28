@@ -1,0 +1,86 @@
+﻿@model IEnumerable<World.country>
+
+@{
+    ViewBag.Title = "country";
+}
+
+<h2>country</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Continent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Region)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.IndepYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Populationn)
+        </th>
+       
+        
+        <th>
+            @Html.DisplayNameFor(model => model.LocalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GovernmentForm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeadOfState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capital)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Continent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.IndepYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Populationn)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GovernmentForm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeadOfState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capital)
+        </td>
+        
+        @*td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>*@
+    </tr>
+}
+
+</table>

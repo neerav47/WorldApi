@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Continents</title>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    
+    
+    <style>
+        ul {
+        padding-top: 20px;
+        }
+        li,hover {
+            background-color: blue;
+        }
+    </style>
+    <script>
+        //$(document).ready(function () {
+        //    var list = $("#list");
+        //    $("#click").click(function () {
+        //            $.ajax({
+        //            type: "GET",
+        //            url: "api/Continents",
+        //            datatype: "json",
+        //            success: function (data) {
+        //                list.empty();
+        //                $.each(data.Result, function (i,string) {
+        //                    list.append("<li class=list-group-item>" + string + "<span class='badge'>i</span></li>");
+        //                });
+        //            }
+        //        });
+
+        //    });
+        $(document).ready(function () {
+          
+                var list = $("#divlist");
+                $("#click").click(function () {
+                    $.ajax({
+                        type: "GET",
+                        url: "api/Continents",
+                        datatype: "json",
+                        success: function (data) {
+                            list.empty();
+                            $.each(data.Result, function (i,string) {
+                                list.append("<a href='#'><li class=list-group-item>" + string.Name + "<span class='badge'>" + "Countries: "+ string.Countrycount + "</span></li></a>");
+                                
+                            });
+                        }
+                    });
+
+                });
+            $("#contryclick").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "api/countries",
+                    datatype: "json",
+                    success: function (data) {
+                        list.empty();
+                        $.each(data.Result, function (i, string) {
+                            list.append("<li class='list-group-item'>" + string.Name + "<span class='badge'>" + "Population: "+ string.Populationn + "</span></li>");
+
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="col-lg-offset-2 col-lg-8" style="padding-top:20px;">
+        <!--<div id="map-continents"></div>-->
+        <input class="col-lg-offset-4 btn btn-info btn-lg"  type="button" id="click" value="getcontinents"  />
+        <input type="button" id="contryclick" class="btn btn-info btn-lg" value="Get Countries" />
+        <ul id="list" class="list-group"></ul>
+        <div class="list-group" id="divlist">
+           <ul></ul>
+        </div>
+    </div>
+</body>
+</html>
